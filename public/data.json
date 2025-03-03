@@ -1,0 +1,94 @@
+{
+   "selected_theme": "default",
+   "name": "Apoteketgodeherden",
+   "hostname": "testar.nemo.se",
+   "logo": "\/assets\/logo.png",
+   "business": "pharmacy",
+   "phonenumber": "08-55099106",
+   "email": "info@apoteketgodeherden.se",
+   "address": "Robertanbergsv\u00e4g 33, 151 53 S\u00f6dert\u00e4lje",
+   "opening_hours": [
+      {
+         "day": 1,
+         "start": 900,
+         "end": 1900
+      },
+      {
+         "day": 2,
+         "start": 900,
+         "end": 1900
+      },
+      {
+         "day": 3,
+         "start": 900,
+         "end": 1900
+      },
+      {
+         "day": 4,
+         "start": 900,
+         "end": 1900
+      },
+      {
+         "day": 5,
+         "start": 900,
+         "end": 1900
+      },
+      {
+         "day": 6,
+         "start": 1000,
+         "end": 1500
+      }
+   ],
+   "facebook_url": "https:\/\/www.facebook.com\/apoteketgodeherden",
+   "x_url": null,
+   "instagram_url": null,
+   "header_image": "\/assets\/header.png",
+   "header_image_url": null,
+   "intro": "V\u00e4lkommen till Apoteketgodeherden, din fris\u00f6roas i hj\u00e4rtat av S\u00f6dert\u00e4lje. Vi ligger p\u00e5 Robertanbergsv\u00e4g 33, 151 53 och \u00e4r redo att ge dig en fantastisk fris\u00f6rupplevelse. Med v\u00e5r expertis, passion och kreativitet, kan vi skapa den perfekta frisyren f\u00f6r dig. V\u00e4lkommen till oss p\u00e5 Apoteketgodeherden!",
+   "content": [
+      {
+         "type": "text",
+         "title": "Hemk\u00f6rning",
+         "text": "<p>Vi p\u00e5 Apoteket Gode Herden satsar p\u00e5 bra kundkontakt och en \u00e4nnu b\u00e4ttre service. Vi har d\u00e4rf\u00f6r S\u00f6dert\u00e4ljes f\u00f6rsta, och enda hemk\u00f6rningstj\u00e4nst av l\u00e4kemedel.<br>Snabbt och smidigt levererar vi din medicin hem till dig. Men b\u00e4st av allt s\u00e5 \u00e4r den GRATIS!<\/p><p>F\u00f6r att ta del av tj\u00e4nsten kr\u00e4vs ett p\u00e5skrivet avtal. Detta avser enbart att apoteket har tillst\u00e5nd fr\u00e5n dig som kund att g\u00e5 in och granska dina recept.<\/p><p>Ladda ner avtal och allm\u00e4nna villkor.<\/p><a href=\"\/assets\/Allma\u0308nna villkor.pdf\">Allma\u0308nna villkor.pdf<\/a><p>Kontakta oss g\u00e4rna vid fr\u00e5gor och funderingar!<\/p>"
+      },
+      {
+         "type": "text",
+         "title": "E-recept",
+         "text": "<p>Du kan enkelt se dina giltiga recept p\u00e5 Mina v\u00e5rdkontakter. Detta \u00e4r en statligt \u00e4gd tj\u00e4nst och har till syfte att upplysa om de olika tj\u00e4nster som varje landsting och region har att erbjuda.<\/p><p><a href=\"https:\/\/kontakt.minavardkontakter.se\/mvk\/login\/login.xhtml\">Logga in p\u00e5 Mina v\u00e5rdkontakter.<\/a><\/p><p>Du beh\u00f6ver E-legitimation f\u00f6r att kunna logga in<\/p>"
+      },
+      {
+         "type": "text",
+         "title": "Fakta & R\u00e5d",
+         "text": "<img src=\"\/assets\/1177.png\" alt=\"1177\"><p>V\u00e5rdguiden \u00e4r en statlig hemsida som erbjuder fakta och r\u00e5d via internet eller telefon. Detta \u00e4r hela Sveriges samlingsplats f\u00f6r information och tj\u00e4nster inom h\u00e4lsa och v\u00e5rd.<\/p><p>Bes\u00f6k hemsidan <a href=\"http:\/\/1177.se\/\">h\u00e4r<\/a> f\u00f6r mer information<\/p>"
+      },
+      {
+         "type": "text",
+         "title": "Video",
+         "text": "<iframe src=\"https:\/\/www.youtube.com\/watch?v=X5oTlfc6WYY\" frameborder=\"0\" allowfullscreen><\/iframe>"
+      }
+   ],
+   "subpages": [
+      {
+         "title": "Om oss",
+         "intro": null,
+         "content": [
+            {
+               "type": "text",
+               "title": null,
+               "text": "<p>Apoteket Gode Herden \u00e4r ett apotek med stora ambitioner. Vi str\u00e4var efter att ge dig som kund personlig uppm\u00e4rksamhet vad g\u00e4ller h\u00e4lsa och personlig service. Med v\u00e5ra ut\u00f6kade tj\u00e4nster som hemk\u00f6rning av l\u00e4kemedel kommer apoteket till dig, oavsett sk\u00e4l.<\/p><p>Hos oss kan du f\u00e5 hj\u00e4lp med alla dina apoteks\u00e4renden, stora som sm\u00e5. V\u00e5ra farmaceuter har m\u00e5ng\u00e5rig erfarenhet och hj\u00e4lper dig med fr\u00e5gor r\u00f6rande l\u00e4kemedel och h\u00e4lsa. Vi ser till att du som kund hos oss har en god upplevelse, p\u00e5 dina villkor.<\/p><p>Vi str\u00e4var hela tiden till att uppfylla v\u00e5ra kunders \u00f6nskningar g\u00e4llande sortiment, tillg\u00e4nglighet och \u00f6ppettider. Har du d\u00e4rf\u00f6r synpunkter eller fr\u00e5gor \u00e4r du mer \u00e4n v\u00e4lkommen att ta kontakt med oss<\/p>"
+            }
+         ]
+      },
+      {
+         "title": "Kontakta oss",
+         "intro": null,
+         "content": [
+            {
+               "type": "text",
+               "title": null,
+               "text": "<p>Personlig kontakt \u00e4r viktigt f\u00f6r oss.&nbsp;<br>Detta f\u00f6r att du som kund ska slippa slussas runt till olika avdelningar och olika personer.<br>Hos oss har du en och samma kontakt oavsett om det g\u00e4ller r\u00e5dgivning, k\u00f6p, leverans eller service.<\/p><p>Har du fr\u00e5gor, \u00e4r du alltid v\u00e4lkommen att kontakta oss via telefon.<br>Telefon: <a href=\"tel:08-55099106\">08-55099106<\/a>.<\/p><p>Du kan \u00e4ven n\u00e5 oss via e-post: <a href=\"mailto:info@apoteketgodeherden.se\">info@apoteketgodeherden.se<\/a><\/p>"
+            }
+         ]
+      }
+   ]
+}

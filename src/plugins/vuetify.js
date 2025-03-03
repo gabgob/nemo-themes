@@ -7,4 +7,9 @@ export default createVuetify({
   directives: {
     // If you use directives, you can define them here
   },
+  theme: {
+    typography: {
+      fontFamily: "Open Sans, sans-serif",
+    },
+  },
 });
