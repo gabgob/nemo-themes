@@ -1,90 +1,78 @@
 <template>
-  <v-container fluid class="pa-0">
-    <header class="d-flex flex-column">
-      <div class="over-header d-none d-md-block">
-        <v-row>
-          <v-col cols="10" offset="1" offset-xl="2" class="d-flex flex-row">
-            <div class="d-flex align-center">
-              <v-icon> mdi-phone-outline </v-icon>
-              <p class="ml-2 pa-2">
-                <span class="font-weight-light"> Nå oss på </span>
-                <br />
-                <span class="font-weight-medium">
-                  {{ content.phonenumber }}
-                </span>
-              </p>
-            </div>
-            <v-divider vertical class="mx-6" />
-            <div class="d-flex align-center">
-              <v-icon> mdi-map </v-icon>
-              <p class="ml-2 pa-2">
-                <span class="font-weight-light"> Vi finns här </span>
-                <br />
-                <span class="font-weight-medium">
-                  <a :href="googleMapsLink" target="_blank" class="text-black">
-                    {{ formattedAddress }}
-                  </a>
-                </span>
-              </p>
-            </div>
-            <v-divider vertical class="mx-6" />
-            <div class="d-flex align-center">
-              <v-icon> mdi-clock-time-four-outline </v-icon>
-              <p class="ml-2">
-                <span class="font-weight-light"> Våra öppettider </span>
-                <br />
-                <span class="font-weight-medium">
-                  {{ formatOpeningHours(content.opening_hours) }}
-                </span>
-              </p>
-            </div>
-            <v-spacer></v-spacer>
-            <div class="socials-container d-flex align-center">
-              <v-icon size="large"> mdi-facebook </v-icon>
-              <v-icon size="large" class="ml-2"> mdi-instagram </v-icon>
-            </div>
-          </v-col>
-        </v-row>
-      </div>
-      <div class="main-header">
-        <v-row>
-          <v-col lg="8" offset-lg="2" offset-xl="2" class="d-flex flex-row">
-            <v-row class="d-flex align-center">
-              <v-col cols="6" sm="3" xl="2">
-                <v-img
-                  src="
-https://www.apoteketgodeherden.se/sites/all/themes/custom/ra_theme/logo.png"
-                  :alt="content.name + ' logotyp'"
-                  width="100%"
-                />
-              </v-col>
-              <v-spacer class="d-md-none"></v-spacer>
-              <v-col class="text-right mr-4 d-md-none">
-                <v-icon size="x-large"> mdi-menu </v-icon>
-              </v-col>
-            </v-row>
-          </v-col>
-        </v-row>
-      </div>
-      <!-- <v-row>
-        <v-col cols="6" offset="2" class="over-header py-7">
-          <div class="d-flex flex-row align-center">
-            {{ content.phonenumber }}
-          </div>
+  <v-app-bar
+    flat
+    :class="{
+      'header-menu': true,
+      'under-header': mdAndUp && content.selected_theme === 'alternative',
+    }"
+  >
+    <v-container v-if="content" fluid>
+      <v-row class="d-flex align-center">
+        <v-col offset-lg="1" offset-xl="2">
+          <router-link :to="'/'">
+            <v-img
+              class="logotype"
+              src="https://www.apoteketgodeherden.se/sites/all/themes/custom/ra_theme/logo.png"
+              :alt="content.name + ' logotyp'"
+              max-height="68"
+              max-width="200"
+              contain
+            />
+          </router-link>
+        </v-col>
+        <v-col offset="1" class="d-flex flex-row align-center">
+          <router-link
+            v-for="(page, index) in content.subpages"
+            :key="index"
+            :to="`/${page.title.toLowerCase().replace(/\s+/g, '-')}`"
+            class="mr-6 text-black"
+          >
+            {{ page.title }}
+          </router-link>
+        </v-col>
+        <v-col class="text-right">
+          <v-btn
+            v-if="$vuetify.display.smAndDown"
+            variant="text"
+            icon="mdi-menu"
+            @click.stop="drawer = !drawer"
+          />
         </v-col>
       </v-row>
-      <v-row>
-        <v-col cols="6" offset="2" class="main-header"> test 2 </v-col>
-      </v-row> -->
-    </header>
-  </v-container>
+    </v-container>
+  </v-app-bar>
+
+  <v-navigation-drawer v-model="drawer" temporary>
+    <v-list>
+      <v-list-item
+        v-for="(item, index) in items"
+        :key="index"
+        :to="item.value"
+        @click="drawer = false"
+      >
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue";
+import { computed, ref } from "vue";
+import { useDisplay } from "vuetify";
+
+const { mdAndUp } = useDisplay();
 
 const props = defineProps({
   content: { type: Object, default: () => {} },
+});
+
+const drawer = ref(false);
+
+const items = computed(() => {
+  return props.content.subpages.map((page) => ({
+    title: page.title,
+    value: `/${page.title.toLowerCase().replace(/\s+/g, "-")}`,
+  }));
 });
 
 const googleMapsLink = computed(
@@ -107,14 +95,12 @@ function formatOpeningHours(data) {
     "Söndag",
   ];
 
-  // Function to format time from 900 to 9:00 and 1900 to 19:00
   const formatTime = (time) => {
     let hours = Math.floor(time / 100);
     let minutes = time % 100 === 0 ? "00" : time % 100;
     return `${hours}.${minutes}`;
   };
 
-  // Create a map of provided days
   let dataMap = new Map(data.map((d) => [d.day, d]));
 
   let result = [];
@@ -150,7 +136,6 @@ function formatOpeningHours(data) {
     result.push({ days: tempGroup, start: prevStart, end: prevEnd });
   }
 
-  // Format the grouped result
   return result
     .map(({ days, start, end, closed }) => {
       let dayString =
@@ -164,36 +149,19 @@ function formatOpeningHours(data) {
 </script>
 
 <style scoped>
-.header {
-  background: #0082cf;
-  text-align: center;
-  padding: 1rem;
-  color: white;
+.header-menu {
+  padding: 20px 0;
+  background-color: rgb(236, 236, 236) !important;
 }
 
-.main-header {
-  background-color: rgb(235, 235, 235);
-  padding: 30px 0;
-}
-
-.over-header {
-  font-size: 14px;
-  padding: 5px 0;
-}
-
-@media only screen and (max-width: 1280px) {
-  .over-header {
-    font-size: 11px;
-  }
+.v-toolbar .v-toolbar__content {
+  height: 124px !important;
 }
 
 @media only screen and (max-width: 960px) {
-  .over-header {
-    font-size: 9px;
-  }
-
-  .main-header {
-    padding: 25px 15px;
+  .logotype {
+    max-width: 200px !important;
+    max-height: 60px !important;
   }
 }
 </style>

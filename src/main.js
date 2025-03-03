@@ -6,5 +6,5 @@ import { routes } from "./router";
 import vuetify from "./plugins/vuetify";
 
 export const createApp = ViteSSG(App, { routes }, ({ app }) => {
-  app.use(vuetify); // Make sure Vuetify is applied here
+  app.use(vuetify);
 });

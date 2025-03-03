@@ -1,51 +1,25 @@
 <template>
-  <!-- <component
-    :is="loadComponent(theme.components?.header)"
-    :content="theme.content"
-  />
-  <component
-    :is="loadComponent(theme.components?.footer)"
-    :content="theme.content"
-  /> -->
-  <div v-if="data">
+  <v-layout>
     <component
+      v-if="data"
       :is="loadComponent(data.selected_theme, 'header')"
       :content="data"
     />
-    <!-- <h1>{{ data.name }}</h1>
-    <p v-html="data.intro"></p>
+  </v-layout>
 
-    <section v-for="(item, index) in data.content" :key="index">
-      <h2>{{ item.title }}</h2>
-      <div v-html="item.text"></div>
-    </section>
-
-    <nav>
-      <ul>
-        <li v-for="(page, index) in data.subpages" :key="index">
-          <router-link :to="'/' + page.title.toLowerCase()">
-            {{ page.title }}
-          </router-link>
-        </li>
-      </ul>
-    </nav> -->
-  </div>
-  <main>
+  <main v-if="data" style="margin-top: 105px">
     <router-view />
   </main>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, defineAsyncComponent } from "vue";
+import { ref, onMounted, defineAsyncComponent } from "vue";
 
 const data = ref(null);
-const selectedTheme = ref("default");
 
 onMounted(async () => {
   const response = await fetch("/data.json");
   data.value = await response.json();
-
-  console.log("här", data.value);
 });
 
 const loadComponent = (theme, component) => {
@@ -56,14 +30,48 @@ const loadComponent = (theme, component) => {
   }
   return "div";
 };
-/* 
-const theme = computed(() => settings.value?.[selectedTheme.value] || {});
-
- */
 </script>
 
 <style>
 body {
   font-family: "Roboto", sans-serif;
+}
+
+header {
+  width: 100%;
+}
+
+.main-header {
+  background-color: rgb(235, 235, 235);
+  padding: 30px 0;
+}
+
+.over-header {
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.under-header {
+  margin-top: 76px;
+}
+
+.v-img {
+  min-width: 120px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .over-header {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .over-header {
+    font-size: 9px;
+  }
+
+  .main-header {
+    padding: 25px 15px;
+  }
 }
 </style>
