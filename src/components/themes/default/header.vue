@@ -3,17 +3,17 @@
     flat
     :class="{
       'header-menu': true,
-      'under-header': mdAndUp && content.selected_theme === 'alternative',
+      'under-header': mdAndUp && data.selected_theme === 'alternative',
     }"
   >
-    <v-container v-if="content" fluid>
+    <v-container v-if="data" fluid>
       <v-row class="d-flex align-center">
         <v-col offset-lg="1" offset-xl="2">
           <router-link :to="'/'">
             <v-img
               class="logotype"
               src="https://www.apoteketgodeherden.se/sites/all/themes/custom/ra_theme/logo.png"
-              :alt="content.name + ' logotyp'"
+              :alt="data.name + ' logotyp'"
               max-height="68"
               max-width="200"
               contain
@@ -22,7 +22,7 @@
         </v-col>
         <v-col offset="1" class="d-flex flex-row align-center">
           <router-link
-            v-for="(page, index) in content.subpages"
+            v-for="(page, index) in data.subpages"
             :key="index"
             :to="`/${page.title.toLowerCase().replace(/\s+/g, '-')}`"
             class="mr-6 text-black"
@@ -63,13 +63,13 @@ import { useDisplay } from "vuetify";
 const { mdAndUp } = useDisplay();
 
 const props = defineProps({
-  content: { type: Object, default: () => {} },
+  data: { type: Object, default: () => {} },
 });
 
 const drawer = ref(false);
 
 const items = computed(() => {
-  return props.content.subpages.map((page) => ({
+  return props.data.subpages.map((page) => ({
     title: page.title,
     value: `/${page.title.toLowerCase().replace(/\s+/g, "-")}`,
   }));

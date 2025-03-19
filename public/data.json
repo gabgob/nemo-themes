@@ -88,6 +88,18 @@
           "title": null,
           "text": "<p>Personlig kontakt \u00e4r viktigt f\u00f6r oss.&nbsp;<br>Detta f\u00f6r att du som kund ska slippa slussas runt till olika avdelningar och olika personer.<br>Hos oss har du en och samma kontakt oavsett om det g\u00e4ller r\u00e5dgivning, k\u00f6p, leverans eller service.</p><p>Har du fr\u00e5gor, \u00e4r du alltid v\u00e4lkommen att kontakta oss via telefon.<br>Telefon: <a href=\"tel:08-55099106\">08-55099106</a>.</p><p>Du kan \u00e4ven n\u00e5 oss via e-post: <a href=\"mailto:info@apoteketgodeherden.se\">info@apoteketgodeherden.se</a></p>"
         }
+      ],
+      "children": [
+        {
+          "type": "text",
+          "title": "Sub nav 1",
+          "text": "<p>Test child page 1</p>"
+        },
+        {
+          "type": "text",
+          "title": "Sub nav 2",
+          "text": "<p>Test child page 2</p>"
+        }
       ]
     }
   ]
