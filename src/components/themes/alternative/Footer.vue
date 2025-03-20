@@ -58,6 +58,7 @@ onBeforeUnmount(() => {
   min-height: 200px;
   padding-top: 20px;
   padding-bottom: 20px;
+  width: 100%;
 }
 
 .copyright {

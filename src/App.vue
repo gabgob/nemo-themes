@@ -1,30 +1,32 @@
 <template>
-  <v-layout>
+  <v-layout class="page-layout">
     <component
       v-if="data"
       :is="loadComponent(data.selected_theme, 'Header')"
       :data="data"
     />
-  </v-layout>
 
-  <main v-if="data" style="margin-top: 105px">
+    <main v-if="data">
+      <component
+        v-if="data && $route.path === '/'"
+        :is="loadComponent(data.selected_theme, 'Hero')"
+        :data="data"
+      />
+      <component
+        v-if="data && $route.path === '/'"
+        :is="loadComponent(data.selected_theme, 'MainContent')"
+        :data="data"
+      />
+
+      <router-view />
+    </main>
+
     <component
-      v-if="data && $route.path === '/'"
-      :is="loadComponent(data.selected_theme, 'Hero')"
-      :data="data"
-    />
-    <component
-      v-if="data && $route.path === '/'"
-      :is="loadComponent(data.selected_theme, 'MainContent')"
-      :data="data"
-    />
-    <component
-      v-if="data && $route.path === '/'"
+      v-if="data"
       :is="loadComponent(data.selected_theme, 'Footer')"
       :data="data"
     />
-    <router-view />
-  </main>
+  </v-layout>
 </template>
 
 <script setup>
@@ -55,13 +57,23 @@ const loadComponent = (theme, component) => {
 <style>
 body,
 html,
-#app,
-main {
+#app {
   height: 100%;
+  margin: 0;
+}
+
+.v-layout.page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 body {
   font-family: "Roboto", sans-serif;
+}
+
+main {
+  flex: 1;
 }
 
 header {
@@ -87,12 +99,15 @@ header {
 }
 
 .content-container {
-  margin-top: 100px !important;
   background-image: url("/bg.jpg");
-  height: 50%;
+  min-height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.margin-top-large {
+  margin-top: 110px !important;
 }
 
 @media only screen and (max-width: 1280px) {

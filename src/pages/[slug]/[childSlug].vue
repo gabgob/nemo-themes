@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!route.params.childSlug && pageData" class="content-container">
+  <div v-if="childData" class="content-container">
     <v-container>
       <v-row class="margin-top-large">
         <v-col
@@ -12,27 +12,21 @@
           offset-lg="1"
           offset-xl="3"
         >
-          <h1>{{ pageData.title }}</h1>
-          <div v-for="(content, index) in pageData.content" :key="index">
+          <h1>{{ childData.title }}</h1>
+          <div v-for="(content, index) in childData.content" :key="index">
             <div v-if="content.type === 'text'" v-html="content.text"></div>
           </div>
         </v-col>
       </v-row>
     </v-container>
   </div>
-
-  <router-view :childSlug="childSlug"></router-view>
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 
 const props = defineProps({
-  slug: {
-    type: String,
-    required: false,
-  },
   childSlug: {
     type: String,
     required: false,
@@ -40,10 +34,10 @@ const props = defineProps({
 });
 
 const route = useRoute();
-const pageData = ref(null);
+const childData = ref(null);
 const data = ref(null);
 
-const loadPageData = async () => {
+const loadChildData = async () => {
   try {
     if (!data.value) {
       const response = await fetch("/data.json");
@@ -51,9 +45,15 @@ const loadPageData = async () => {
     }
 
     if (data.value && Array.isArray(data.value.subpages)) {
-      pageData.value = data.value.subpages.find(
+      const parentPage = data.value.subpages.find(
         (page) =>
           page.title.toLowerCase().replace(/\s+/g, "-") === route.params.slug
+      );
+
+      childData.value = parentPage.children.find(
+        (child) =>
+          child.title.toLowerCase().replace(/\s+/g, "-") ===
+          route.params.childSlug
       );
     }
   } catch (error) {
@@ -61,9 +61,7 @@ const loadPageData = async () => {
   }
 };
 
-onMounted(loadPageData);
+onMounted(loadChildData);
 
-watch(() => route.params.slug, loadPageData);
+watch(() => route.params.childSlug, loadChildData);
 </script>
-
-<style scoped></style>

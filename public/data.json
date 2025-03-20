@@ -91,14 +91,26 @@
       ],
       "children": [
         {
-          "type": "text",
-          "title": "Sub nav 1",
-          "text": "<p>Test child page 1</p>"
+          "intro": null,
+          "title": "Subpage 1",
+          "content": [
+            {
+              "type": "text",
+              "title": null,
+              "text": "<p>sub page 1 of kontakta oss</p>"
+            }
+          ]
         },
         {
-          "type": "text",
-          "title": "Sub nav 2",
-          "text": "<p>Test child page 2</p>"
+          "intro": null,
+          "title": "Subpage 2",
+          "content": [
+            {
+              "type": "text",
+              "title": null,
+              "text": "<p>sub page 2 of kontakta oss</p>"
+            }
+          ]
         }
       ]
     }
