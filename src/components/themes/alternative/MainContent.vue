@@ -9,8 +9,10 @@
                 class="info-box ma-8"
                 v-for="(pageContent, index) in data.content"
                 :key="index"
-                v-html="pageContent.text"
-              />
+              >
+                <h2>{{ pageContent.title }}</h2>
+                <div v-html="pageContent.text"></div>
+              </v-sheet>
             </div>
           </v-col>
         </v-row>

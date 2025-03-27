@@ -84,7 +84,7 @@
             <router-link :to="'/'">
               <v-img
                 class="logotype"
-                src="/assets/logo.png"
+                :src="data.logo"
                 :alt="data.name + ' logotyp'"
                 max-height="68"
                 max-width="200"
@@ -204,6 +204,10 @@
                 </v-list>
               </v-menu>
             </template>
+          </v-col>
+          <v-col v-if="data.header_image">
+            <!-- TODO: Om header_image_url är satt så är det en länk-->
+            <v-img :src="data.header_image"></v-img>
           </v-col>
           <v-col class="text-right">
             <v-btn
