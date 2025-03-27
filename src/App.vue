@@ -99,7 +99,7 @@ header {
 }
 
 .content-container {
-  background-image: url("/bg.jpg");
+  background-image: url("/assets/bg.jpg");
   min-height: 500px;
   background-position: center;
   background-repeat: no-repeat;

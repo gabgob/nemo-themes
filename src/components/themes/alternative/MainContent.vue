@@ -6,9 +6,9 @@
           <v-col>
             <div class="d-flex flex-wrap justify-center">
               <v-sheet
+                class="info-box ma-8"
                 v-for="(pageContent, index) in data.content"
                 :key="index"
-                class="info-box ma-8"
                 v-html="pageContent.text"
               />
             </div>
@@ -25,7 +25,7 @@ defineProps({
 });
 </script>
 
-<style scoped>
+<style>
 .info-boxes-container {
   background-color: #f8f8f8;
 }
@@ -39,6 +39,14 @@ defineProps({
 
 .info-box:hover {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #047ac0;
 }
 
 @media only screen and (max-width: 960px) {

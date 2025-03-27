@@ -84,7 +84,7 @@
             <router-link :to="'/'">
               <v-img
                 class="logotype"
-                src="https://www.apoteketgodeherden.se/sites/all/themes/custom/ra_theme/logo.png"
+                src="/assets/logo.png"
                 :alt="data.name + ' logotyp'"
                 max-height="68"
                 max-width="200"
